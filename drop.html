@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep Internetowy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        header nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid transparent;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        header nav a:hover {
+            background-color: white;
+            color: #333;
+            border-color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        .products, .accessories, .new-arrivals, .cart {
+            display: none;
+        }
+        .products.active, .accessories.active, .new-arrivals.active, .cart.active, .home.active {
+            display: block;
+        }
+        .product, .accessory, .new-arrival {
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 10px;
+            width: 30%;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .product img, .accessory img, .new-arrival img {
+            width: 100%;
+            height: auto;
+        }
+        .product h3, .accessory h3, .new-arrival h3 {
+            text-align: center;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" onclick="showSection('home')">Strona Główna</a>
+            <a href="#" onclick="showSection('products')">Produkty</a>
+            <a href="#" onclick="showSection('accessories')">Akcesoria</a>
+            <a href="#" onclick="showSection('new-arrivals')">Nowości</a>
+            <a href="#" onclick="showSection('cart')">Koszyk</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="home active">
+            <h1>Witamy w naszym sklepie internetowym!</h1>
+            <p>Znajdziesz u nas szeroki wybór produktów najwyższej jakości.</p>
+        </section>
+        
+        <section class="products">
+            <h2>Nasze Produkty</h2>
+            <div class="product">
+                <a href="https://mygiftdna.pl/Wieczna-Roza-W-Szkle/Najlepsza-Mama?gad_source=1&gclid=CjwKCAjwx-CyBhAqEiwAeOcTdf85c8Ol-qsOyJYsqWvIYGqxp2QVwnjiUyNPCYhZnyWorBwWZgK4VRoCjBAQAvD_BwE" target="_blank">
+                    <img src="https://mygiftdna.pl/photo/product/large/83/wieczna-roza-w-szkle_najlepsza-mama_83_62e03f735eae7.jpg" alt="Wieczna Róża w Szkle - Najlepsza Mama">
+                </a>
+                <h3>Wieczna Róża w Szkle - Najlepsza Mama</h3>
+                <p>Piękna wieczna róża w szkle z napisem "Najlepsza Mama".</p>
+                <p>Cena: 199 zł</p>
+            </div>
+            <!-- Dodaj więcej produktów tutaj -->
+        </section>
+
+        <section class="accessories">
+            <h2>Nasze Akcesoria</h2>
+            <div class="accessory">
+                <img src="accessory1.jpg" alt="Akcesorium 1">
+                <h3>Akcesorium 1</h3>
+                <p>Opis akcesorium 1</p>
+                <p>Cena: 50 zł</p>
+            </div>
+            <div class="accessory">
+                <img src="accessory2.jpg" alt="Akcesorium 2">
+                <h3>Akcesorium 2</h3>
+                <p>Opis akcesorium 2</p>
+                <p>Cena: 75 zł</p>
+            </div>
+            <div class="accessory">
+                <img src="accessory3.jpg" alt="Akcesorium 3">
+                <h3>Akcesorium 3</h3>
+                <p>Opis akcesorium 3</p>
+                <p>Cena: 100 zł</p>
+            </div>
+        </section>
+
+        <section class="new-arrivals">
+            <h2>Nowości</h2>
+            <div class="new-arrival">
+                <img src="new1.jpg" alt="Nowość 1">
+                <h3>Nowość 1</h3>
+                <p>Opis nowości 1</p>
+                <p>Cena: 120 zł</p>
+            </div>
+            <div class="new-arrival">
+                <img src="new2.jpg" alt="Nowość 2">
+                <h3>Nowość 2</h3>
+                <p>Opis nowości 2</p>
+                <p>Cena: 130 zł</p>
+            </div>
+            <div class="new-arrival">
+                <img src="new3.jpg" alt="Nowość 3">
+                <h3>Nowość 3</h3>
+                <p>Opis nowości 3</p>
+                <p>Cena: 140 zł</p>
+            </div>
+        </section>
+
+        <section class="cart">
+            <h2>Twój Koszyk</h2>
+            <p>Twój koszyk jest pusty.</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Sklep Internetowy. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script>
+        function showSection(section) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            document.querySelector(`.${section}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
